@@ -8,7 +8,7 @@ import { useNavigate } from "react-router-dom";
 export interface TodoProps {
     _id: string;
     title: string;
-    isCompleted: boolean;
+    completed: boolean;
 }
 
 const Todo = () => {
@@ -63,7 +63,7 @@ const Todo = () => {
                 `http://localhost:4000/todo/update/${_id}`,
                 {
                     ...todo,
-                    isCompleted: !todo.isCompleted,
+                    completed: !todo.completed,
                 },
                 { withCredentials: true }
             );
@@ -121,11 +121,11 @@ const Todo = () => {
                             <div className="flex gap-2 items-center">
                                 <input
                                     type="checkbox"
-                                    checked={todo.isCompleted}
+                                    checked={todo.completed}
                                     onChange={() => toggleTodo(todo._id)}
                                 />
                                 <span
-                                    className={`text-lg ${todo.isCompleted ? 'line-through text-gray-500' : 'text-[#4b4b4e]'}`}
+                                    className={`text-lg ${todo.completed ? 'line-through text-gray-500' : 'text-[#4b4b4e]'}`}
                                 >
                                     {todo.title}
                                 </span>

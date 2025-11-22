@@ -16,7 +16,6 @@ export const authenticate = async (
   next: NextFunction
 ) => {
   const token = req.cookies?.jwt;
-  console.log(token);
   
   if (!token) {
     console.log("not going belo");
